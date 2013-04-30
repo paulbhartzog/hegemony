@@ -1,14 +1,80 @@
 <!doctype html>
 <html ng-app>
   <head>
+    <link href='http://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+    <script>
+    function newgameCtrl($scope) {
+	$scope.alert = function() {
+		alert("New Game");
+	}
+    }
+    function loadgameCtrl($scope) {
+	$scope.alert = function() {
+		alert("Load Game");
+	}
+    }
+    function savegameCtrl($scope) {
+	$scope.alert = function() {
+		alert("Save Game");
+	}
+    }
+    function resumegameCtrl($scope) {
+	$scope.alert = function() {
+		alert("Resume Game");
+	}
+    }
+    function helpCtrl($scope) {
+	$scope.alert = function() {
+		alert("Hegemony is a take-over-the-galaxy game");
+	}
+    }
+    function exitCtrl($scope) {
+	$scope.alert = function() {
+		if (confirm("Exit Game?")) {
+			close();
+		}
+	}
+    }
+
+    </script>
+    <style>
+      #title {
+      font-size:300%;
+      margin: 20px;
+      font-family:"Orbitron";
+	}
+       button {
+	border:5px solid #C4C4C4;
+
+
+	width:400px;
+	height:40px;
+	margin: 4px auto 4px auto;
+	background-color:#257C30;
+	cursor:pointer;
+	color:#ffffff;
+	display:block;
+	font-family:"Orbitron";
+	font-size:100%;
+	}
+
+	body {
+	background-color:#07173F;
+	color:#ffffff;
+	text-align:center;
+	}
+    </style>
   </head>
   <body>
-    <div>
-      <label>Name:</label>
-      <input type="text" ng-model="yourName" placeholder="Enter a name here">
-      <hr>
-      <h1>HEY {{yourName}}!</h1>
-    </div>
+	<div id="title">
+	HEGEMONY
+	</div>
+	<button ng-controller="newgameCtrl" ng-click="alert()" id="new_game">New Game</button>
+	<button ng-controller="loadgameCtrl" ng-click="alert()" id="load_game">Load Game</button>
+	<button ng-controller="savegameCtrl" ng-click="alert()" id="save_game">Save Game</button>
+	<button ng-controller="resumegameCtrl" ng-click="alert()" id="resume_game">Resume Game</button>
+	<button ng-controller="helpCtrl" ng-click="alert()" id="help">Help</button>
+	<button ng-controller="exitCtrl" ng-click="alert()" id="exit">Exit</button>
   </body>
 </html>
